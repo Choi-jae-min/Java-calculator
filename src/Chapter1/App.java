@@ -7,20 +7,26 @@ public class App {
         Scanner input = new Scanner(System.in);
 
         System.out.println("첫 번째 양의 정수를 입력하세요.");
-        int a = input.nextInt();
+        int positiveNumber1 = input.nextInt();
 
-        if (a < 0) {
-            throw new ArithmeticException("양의 정수만 입력 할 수 있습니다 입력값 " + a +"는 음수입니다.");
+        if (positiveNumber1 < 0) {
+            throw new IllegalArgumentException("양의 정수만 입력 할 수 있습니다 입력값 " + positiveNumber1 +"는 음수입니다.");
         }
-        System.out.println("첫 번째 양의 정수:" + a);
+        System.out.println("첫 번째 양의 정수:" + positiveNumber1);
 
         System.out.println("두 번째 양의 정수를 입력하세요.");
-        int b = input.nextInt();
+        int positiveNumber2 = input.nextInt();
 
-        if (b < 0) {
-            throw new ArithmeticException("양의 정수만 입력 할 수 있습니다 입력값 " + b +"는 음수입니다.");
+        if (positiveNumber2 < 0) {
+            throw new IllegalArgumentException("양의 정수만 입력 할 수 있습니다 입력값 " + positiveNumber2 +"는 음수입니다.");
         }
-        System.out.println("두 번째 양의 정수:" + b);
+        System.out.println("두 번째 양의 정수:" + positiveNumber2);
 
+        System.out.println("사칙연산 기호를 입력하세요 + , - , * , / ");
+        char operator = input.next().charAt(0);
+        if(operator != '+' && operator != '-' && operator != '*' && operator != '/') {
+            throw new IllegalArgumentException("올바른 사칙연산 기호를 입력하세요 현재 입력값 : " + operator);
+        }
+        System.out.println("입력 받은 사칙연산:" + operator);
     }
 }
