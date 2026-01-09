@@ -31,25 +31,18 @@ public class App {
 //        이런 형태로 4개의 if , 혹은 else if문은 가독성을 떨어뜨리고, 만약 같은 if문이 해당 기능 외에도 20개 30 개 가있다고 생각하면,
 //        어디까지가 사칙연산을 위한 if문으로 어디가 다른 기능을 위한 if인지 알기 어렵다고 생각했습니다.
 //        거기에 마지막 default 를 활용하여 해당 모든 조건에 만족하지 않는다면, 이외에는 무조건 에러라고 판단 할 수 있기에 채용하였습니다.
-        switch (operator) {
-            case '+':
-                result = positiveNumber1 + positiveNumber2;
-                break;
-            case '-':
-                result = positiveNumber1 - positiveNumber2;
-                break;
-            case '*':
-                result = positiveNumber1 * positiveNumber2;
-                break;
-            case '/':
+        result = switch (operator) {
+            case '+' -> positiveNumber1 + positiveNumber2;
+            case '-' -> positiveNumber1 - positiveNumber2;
+            case '*' -> positiveNumber1 * positiveNumber2;
+            case '/' -> {
                 if (positiveNumber2 == 0) {
                     throw new ArithmeticException("0으로는 나눌 수 없습니다.");
                 }
-                result = positiveNumber1 / positiveNumber2;
-                break;
-            default:
-                throw new IllegalArgumentException("올바른 사칙연산 기호를 입력하세요 현재 입력값 : " + operator);
-        }
+                yield positiveNumber1 / positiveNumber2;
+            }
+            default -> throw new IllegalArgumentException("올바른 사칙연산 기호를 입력하세요 현재 입력값 : " + operator);
+        };
         System.out.println("결과 : " + result);
     }
 }
