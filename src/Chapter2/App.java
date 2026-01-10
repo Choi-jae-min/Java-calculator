@@ -21,15 +21,14 @@ public class App {
             int positiveNumber2 = input.nextInt();
             calculator.checkValidNumber(positiveNumber2);
 
-
             System.out.println("사칙연산 기호를 입력하세요 + , - , * , / ");
             char operator = input.next().charAt(0);
 
             int result = calculator.CalculateNumber(positiveNumber1, positiveNumber2, operator);
 
-            calculator.calculateResult.add(result);
+            calculator.addCalculateResult(result);
 
-            System.out.println("지금까지 계산 결과 : " + calculator.calculateResult);
+            System.out.println("지금까지 계산 결과 : " + calculator.getCalculateResult());
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             isExitString = input.next();

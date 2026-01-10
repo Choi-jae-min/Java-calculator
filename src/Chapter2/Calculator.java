@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Calculator {
 
-    ArrayList<Integer> calculateResult = new ArrayList<>();
+    private ArrayList<Integer> calculateResult = new ArrayList<>();
 
     int CalculateNumber(int positiveNumber1, int positiveNumber2 , char operator) {
         return switch (operator) {
@@ -26,4 +26,17 @@ public class Calculator {
             throw new IllegalArgumentException("양의 정수만 입력 할 수 있습니다 입력값 " + number + "는 음수입니다.");
         }
     }
+
+    public void setCalculateResult(ArrayList<Integer> calculateResult) {
+        this.calculateResult = calculateResult;
+    }
+
+    public ArrayList<Integer> getCalculateResult() {
+        return calculateResult;
+    }
+
+    public void addCalculateResult(int number) {
+        this.calculateResult.add(number);
+    }
+
 }
