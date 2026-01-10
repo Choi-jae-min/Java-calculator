@@ -39,4 +39,8 @@ public class Calculator {
         this.calculateResult.add(number);
     }
 
+    public void removeFristCalculateResult() {
+        this.calculateResult.removeFirst();
+        System.out.println("삭제 후 결과 : " + this.calculateResult);
+    }
 }

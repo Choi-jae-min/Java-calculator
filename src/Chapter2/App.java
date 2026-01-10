@@ -29,6 +29,11 @@ public class App {
             calculator.addCalculateResult(result);
 
             System.out.println("지금까지 계산 결과 : " + calculator.getCalculateResult());
+            System.out.println("가장 첫번째 계산 결과를 삭제 하시겠습니까? D입력시 삭제");
+            char doDelete = input.next().charAt(0);
+            if (doDelete == 'd') {
+                calculator.removeFristCalculateResult();
+            }
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             isExitString = input.next();
