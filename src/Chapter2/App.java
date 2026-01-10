@@ -15,9 +15,12 @@ public class App {
 
             System.out.println("첫 번째 양의 정수를 입력하세요.");
             int positiveNumber1 = input.nextInt();
+            calculator.isValidNumber(positiveNumber1);
 
             System.out.println("두 번째 양의 정수를 입력하세요.");
             int positiveNumber2 = input.nextInt();
+            calculator.isValidNumber(positiveNumber2);
+
 
             System.out.println("사칙연산 기호를 입력하세요 + , - , * , / ");
             char operator = input.next().charAt(0);
