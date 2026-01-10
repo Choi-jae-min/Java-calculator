@@ -4,12 +4,11 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        //처음 빈 문자열을 선언 해줘서 null 에러 발생 방지.
         String isExitString = "";
         int result;
-        // while문을 통해 exitString 에 exit 입력 전까지 계속해서 반복하도록 진행.
+        Scanner input = new Scanner(System.in);
+
         while (!isExitString.equals("exit")) {
-            Scanner input = new Scanner(System.in);
 
             System.out.println("첫 번째 양의 정수를 입력하세요.");
             int positiveNumber1 = input.nextInt();
@@ -44,7 +43,6 @@ public class App {
                 default -> throw new IllegalArgumentException("올바른 사칙연산 기호를 입력하세요 현재 입력값 : " + operator);
             };
             System.out.println("결과 : " + result);
-            //exitString 에 입력받은 데이터 할당
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             isExitString = input.next();
         }
