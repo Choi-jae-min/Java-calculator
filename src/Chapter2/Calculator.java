@@ -21,7 +21,7 @@ public class Calculator {
         };
     }
     // 정수 유효성 검사 로직 분리
-    void isValidNumber(int number) {
+    void checkValidNumber(int number) {
         if(number < 0) {
             throw new IllegalArgumentException("양의 정수만 입력 할 수 있습니다 입력값 " + number + "는 음수입니다.");
         }
