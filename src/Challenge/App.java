@@ -4,27 +4,28 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        Calculator calculator = new Calculator();
+        // 타입을 제네릭으로 선언
+        Calculator<Double> calculator = new Calculator<>();
 
         String isExitString = "";
         // chapter1 에서 반복문 안쪽에 있었는데 반복할때마다
         // Scanner 객체가 계속 생성 되기 때문에 바깥으로 빼줌
         Scanner input = new Scanner(System.in);
-
+        //기존 int 로 받던 스캐너와 result 타입을 변경 해 주었습니다.
         while (!isExitString.equals("exit")) {
 
-            System.out.println("첫 번째 양의 정수를 입력하세요.");
-            int positiveNumber1 = input.nextInt();
+            System.out.println("첫 번째 양의 실수를 입력하세요.");
+            double positiveNumber1 = input.nextDouble();
             calculator.checkValidNumber(positiveNumber1);
 
-            System.out.println("두 번째 양의 정수를 입력하세요.");
-            int positiveNumber2 = input.nextInt();
+            System.out.println("두 번째 양의 실수를 입력하세요.");
+            double positiveNumber2 = input.nextDouble();
             calculator.checkValidNumber(positiveNumber2);
 
             System.out.println("사칙연산 기호를 입력하세요 + , - , * , / ");
             char operator = input.next().charAt(0);
             OperatorType operatorType = OperatorType.setSymbol(operator);
-            int result = calculator.CalculateNumber(positiveNumber1, positiveNumber2, operatorType);
+            Double result = calculator.CalculateNumber(positiveNumber1, positiveNumber2, operatorType);
 
             calculator.addCalculateResult(result);
 
