@@ -1,6 +1,8 @@
 package Challenge;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
+
 // 클래스 타입을 제네릭으로 선언
 public class Calculator <T> {
     // 컬랙션의 타입을 제네릭으로 변경
@@ -43,5 +45,21 @@ public class Calculator <T> {
     public void removeFristCalculateResult() {
         this.calculateResult.removeFirst();
         System.out.println("삭제 후 결과 : " + this.calculateResult);
+    }
+
+    // ✅ 한 줄로 표현 가능
+    //List<Integer> ret2 = arrayList.stream() // 1. 데이터 준비
+    //    .map(num -> num * 10)               // 2. 중간 연산 등록
+    //    .collect(Collectors.toList());  // 3. 최종 연산
+    public ArrayList<T> findResultsGreaterThan(double comparisonNumber) {
+        if(this.calculateResult.isEmpty()){
+            System.out.println("배열의 데이터가 비어있습니다. 먼저 계산을 진행 해 주세요.");
+            return null;
+        }
+
+        return this.calculateResult.stream().filter( num -> {
+            double doubleNumber = Double.parseDouble(num.toString());
+            return doubleNumber > comparisonNumber;
+        }).collect(Collectors.toCollection(ArrayList::new));
     }
 }

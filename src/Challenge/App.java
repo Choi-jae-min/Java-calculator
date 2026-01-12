@@ -1,5 +1,6 @@
 package Challenge;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
@@ -30,6 +31,13 @@ public class App {
             calculator.addCalculateResult(result);
 
             System.out.println("지금까지 계산 결과 : " + calculator.getCalculateResult());
+
+            // 입력 값보다 큰 결과들을 반환 할 수 있는 메서드 추가
+            System.out.println("비교할 정수 입력");
+            double comparisonNumber = input.nextDouble();
+            ArrayList<Double> List = calculator.findResultsGreaterThan(comparisonNumber);
+            System.out.println(comparisonNumber +" 보다 큰 결과 리스트 :" + List);
+
             System.out.println("가장 첫번째 계산 결과를 삭제 하시겠습니까? D입력시 삭제");
             char doDelete = input.next().charAt(0);
             if (doDelete == 'd') {
