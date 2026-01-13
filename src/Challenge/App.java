@@ -24,10 +24,17 @@ public class App {
                     System.out.println("사칙연산 기호를 입력하세요 + , - , * , / ");
                     char operator = input.next().charAt(0);
                     OperatorType operatorType = OperatorType.setSymbol(operator);
-                    Double result = calculator.CalculateNumber(positiveNumber1, positiveNumber2, operatorType);
+                    try {
+                        Double result = calculator.CalculateNumber(positiveNumber1, positiveNumber2, operatorType);
+                        calculator.addCalculateResult(result);
 
-                    calculator.addCalculateResult(result);
-                    System.out.println("지금까지 계산 결과 : " + calculator.getCalculateResult());
+                        System.out.println("지금까지 계산 결과 : " + calculator.getCalculateResult());
+                    }catch (ArithmeticException e) {
+                        System.out.println(e.getMessage());
+                    }catch (Exception e) {
+                        System.out.println("예기치 못한 에러가 발생 하였습니다." + e.getMessage());
+                    }
+
                     break;
                 case "2":
                     // 한번 더 검증
