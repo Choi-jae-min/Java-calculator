@@ -33,7 +33,7 @@ public class Calculator <T> {
             try {
                 System.out.println(count + "번째 양의 실수를 입력하세요.");
                 double value = input.nextDouble();
-                if (value <= 0) {
+                if (value < 0) {
                     System.out.println("양의 실수만 입력 가능합니다 현재 값 :" + value);
                     continue;
                 }
