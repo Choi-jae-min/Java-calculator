@@ -44,7 +44,9 @@ public class App {
                     System.out.println("비교할 정수 입력");
                     double comparisonNumber = input.nextDouble();
                     ArrayList<Double> List = calculator.findResultsGreaterThan(comparisonNumber);
-                    System.out.println(comparisonNumber +" 보다 큰 결과 리스트 :" + List);
+                    if(!List.isEmpty()){
+                        System.out.println(comparisonNumber +" 보다 큰 결과 리스트 :" + List);
+                    }
                     break;
                 case "exit":
                     System.out.println("프로그램을 종료합니다..");

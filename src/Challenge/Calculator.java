@@ -43,6 +43,10 @@ public class Calculator <T> {
     public void addCalculateResult(T number) {this.calculateResult.add(number);}
 
     public void removeFristCalculateResult() {
+        if(this.calculateResult.isEmpty()){
+            System.out.println("계산된 결과가 없습니다, 먼저 계산을 진행 해 주세요.");
+            return ;
+        }
         this.calculateResult.removeFirst();
         System.out.println("삭제 후 결과 : " + this.calculateResult);
     }
@@ -53,7 +57,7 @@ public class Calculator <T> {
     //    .collect(Collectors.toList());  // 3. 최종 연산
     public ArrayList<T> findResultsGreaterThan(double comparisonNumber) {
         if(this.calculateResult.isEmpty()){
-            System.out.println("배열의 데이터가 비어있습니다. 먼저 계산을 진행 해 주세요.");
+            System.out.println("계산된 결과가 없습니다, 먼저 계산을 진행 해 주세요.");
             return null;
         }
 
