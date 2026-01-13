@@ -1,6 +1,7 @@
 package Challenge;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 // 클래스 타입을 제네릭으로 선언
@@ -26,13 +27,38 @@ public class Calculator <T> {
             }
         };
     }
-    // 정수 유효성 검사 로직 분리
-    void checkValidNumber(T number) {
-        double doubleNumber = Double.parseDouble(number.toString());
-        if(doubleNumber < 0) {
-            throw new IllegalArgumentException("양의 정수만 입력 할 수 있습니다 입력값 " + number + "는 음수입니다.");
+
+    double readPositiveDouble(Scanner input , int count) {
+        while (true) {
+            try {
+                System.out.println(count + "번째 양의 실수를 입력하세요.");
+                double value = input.nextDouble();
+                if (value <= 0) {
+                    System.out.println("양의 실수만 입력 가능합니다 현재 값 :" + value);
+                    continue;
+                }
+                return value;
+            } catch (Exception e) {
+                System.out.println("숫자가 아닌 다른 데이터가 입력 되었습니다.");
+                input.nextLine();
+            }
         }
     }
+//
+//    // 정수 유효성 검사 로직 분리
+//    boolean checkValidNumber(T number) {
+//        double doubleNumber = Double.parseDouble(number.toString());
+//        try {
+//            if(doubleNumber < 0) {
+//                throw new IllegalArgumentException();
+//            }
+//        }catch (IllegalArgumentException _) {
+//            System.out.println("양의 정수만 입력 할 수 있습니다 입력값 " + number + "는 음수입니다.");
+//            System.out.println("다시 입력 해 주세요.");
+//            return false;
+//        }
+//        return true;
+//    }
 
     public void setCalculateResult(ArrayList<T> calculateResult) {
         this.calculateResult = calculateResult;

@@ -16,13 +16,10 @@ public class App {
 
             switch (menu) {
                 case "1":
-                    System.out.println("첫 번째 양의 실수를 입력하세요.");
-                    double positiveNumber1 = input.nextDouble();
-                    calculator.checkValidNumber(positiveNumber1);
-
-                    System.out.println("두 번째 양의 실수를 입력하세요.");
-                    double positiveNumber2 = input.nextDouble();
-                    calculator.checkValidNumber(positiveNumber2);
+                    int count = 1;
+                    double positiveNumber1 = calculator.readPositiveDouble(input ,count);
+                    count++;
+                    double positiveNumber2 = calculator.readPositiveDouble(input ,count);
 
                     System.out.println("사칙연산 기호를 입력하세요 + , - , * , / ");
                     char operator = input.next().charAt(0);
