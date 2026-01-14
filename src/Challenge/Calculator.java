@@ -5,8 +5,8 @@ import java.util.stream.Collectors;
 
 public class Calculator <T extends Number> {
 
-    private ArrayList<T> calculateResult = new ArrayList<>();
-    private ArrayList<T> deletedList = new ArrayList<>();
+    private final ArrayList<T> calculateResult = new ArrayList<>();
+    private final ArrayList<T> deletedList = new ArrayList<>();
 
     public double CalculateNumber(T positiveNumber1, T positiveNumber2 , OperatorType operator) {
         double number1 = positiveNumber1.doubleValue();
@@ -57,13 +57,15 @@ public class Calculator <T extends Number> {
 //        return true;
 //    }
 
-    public void setCalculateResult(ArrayList<T> calculateResult) {
-        this.calculateResult = calculateResult;
+//    public void setCalculateResult(ArrayList<T> calculateResult) {
+//        this.calculateResult = calculateResult;
+//    }
+//    public ArrayList<T> getCalculateResult() {return CALCULATERESULT;}
+
+    public void addCalculateResult(T number) {
+        this.calculateResult.add(number);
+        System.out.println("지금까지 계산 결과 = " + this.calculateResult);
     }
-
-    public ArrayList<T> getCalculateResult() {return calculateResult;}
-
-    public void addCalculateResult(T number) {this.calculateResult.add(number);}
 
     public void removeFristCalculateResult() {
         if(this.calculateResult.isEmpty()){

@@ -30,8 +30,6 @@ public class App {
                     try {
                         Double result = calculator.CalculateNumber(positiveNumber1, positiveNumber2, operatorType);
                         calculator.addCalculateResult(result);
-
-                        System.out.println("지금까지 계산 결과 : " + calculator.getCalculateResult());
                     }catch (ArithmeticException e) {
                         System.out.println(e.getMessage());
                     }catch (Exception e) {
