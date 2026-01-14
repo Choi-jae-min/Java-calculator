@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 public class Calculator <T extends Number> {
 
     private ArrayList<T> calculateResult = new ArrayList<>();
+    private ArrayList<T> deletedList = new ArrayList<>();
 
     public double CalculateNumber(T positiveNumber1, T positiveNumber2 , OperatorType operator) {
         double number1 = positiveNumber1.doubleValue();
@@ -69,8 +70,21 @@ public class Calculator <T extends Number> {
             System.out.println("계산된 결과가 없습니다, 먼저 계산을 진행 해 주세요.");
             return ;
         }
-        this.calculateResult.removeFirst();
+        T removedValue = this.calculateResult.removeFirst();
+        this.deletedList.add(removedValue);
         System.out.println("삭제 후 결과 : " + this.calculateResult);
+    }
+
+    public void undoDelete(){
+        if(deletedList.isEmpty()){
+            System.out.println("복구할 데이터가 없습니다.");
+            return;
+        }
+        T deletedValue = this.deletedList.removeLast();
+        System.out.println("deletedValue = " + deletedValue);
+        this.calculateResult.addFirst(deletedValue);
+
+        System.out.println("현재 저장된 결과 : " + this.calculateResult);
     }
 
     // ✅ 한 줄로 표현 가능
