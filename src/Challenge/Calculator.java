@@ -7,12 +7,13 @@ public class Calculator <T extends Number> {
 
     private final ArrayList<T> calculateResult = new ArrayList<>();
     private final ArrayList<T> deletedList = new ArrayList<>();
+    private final ArrayList<CalcRecord<T>> calcRecords = new ArrayList<>();
 
     public double CalculateNumber(T positiveNumber1, T positiveNumber2 , OperatorType operator) {
         double number1 = positiveNumber1.doubleValue();
         double number2 = positiveNumber2.doubleValue();
 
-        return switch (operator) {
+        double result = switch (operator) {
             case OperatorType.PLUS ->  number1 + number2;
             case OperatorType.MINUS -> number1 - number2;
             case OperatorType.MULTIPLY ->  number1 * number2;
@@ -23,6 +24,20 @@ public class Calculator <T extends Number> {
                 yield number1 / number2;
             }
         };
+        CalcRecord<T> calcRecord = new CalcRecord<>(positiveNumber1,positiveNumber2 , operator , result);
+        calcRecords.add(calcRecord);
+        return result;
+    }
+
+    public void getCalcRecords() {
+        this.calcRecords.forEach(record -> {
+            System.out.println("============================================================");
+            System.out.println("첫번 째 수 : " + record.num1());
+            System.out.println("연산자 : " + record.operator());
+            System.out.println("두번 째 수 : " + record.num2());
+            System.out.println("연산 결과 : " + record.result());
+            System.out.println("============================================================");
+        });
     }
 
 //    double readPositiveDouble(Scanner input , int count) {

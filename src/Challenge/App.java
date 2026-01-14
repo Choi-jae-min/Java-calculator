@@ -13,7 +13,7 @@ public class App {
         Scanner input = new Scanner(System.in);
         while (!menu.equals("exit")) {
             System.out.println("원하시는 메뉴를 선택 해 주세요.");
-            System.out.println("1 : 계산기 | 2 : 가장 오래된 기록 삭제 | 3 : 더 큰 숫자 찾기 | 4 : 삭제 취소 | exit 입력시 종료");
+            System.out.println("1 : 계산기 | 2 : 가장 오래된 기록 삭제 | 3 : 더 큰 숫자 찾기 | 4 : 삭제 취소 | 5 : 연산 기록 조회 | exit 입력시 종료");
             menu = input.next();
 
             switch (menu) {
@@ -55,6 +55,9 @@ public class App {
                     break;
                 case "4":
                     calculator.undoDelete();
+                    break;
+                case "5":
+                    calculator.getCalcRecords();
                     break;
                 case "exit":
                     System.out.println("프로그램을 종료합니다..");
