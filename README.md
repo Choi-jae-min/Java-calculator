@@ -25,4 +25,4 @@
   - 인풋에 0도 입력받을 수 있도록 수정 (01.13)
   - 0으로 나눌 시 예외처리 추가 (01.13)
   - 제네릭 타입의 extands Number를 이용하여 타입안정성 보장 (01.14)
-    
+  - utility class 추가 readPositiveDouble 메서드 static 으로 설정 => method Area에 올려서 어디서든 접근 가능하도록 수정 (01.14)
