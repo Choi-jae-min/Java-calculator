@@ -4,16 +4,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-// 클래스 타입을 제네릭으로 선언
-public class Calculator <T> {
-    // 컬랙션의 타입을 제네릭으로 변경
+public class Calculator <T extends Number> {
+
     private ArrayList<T> calculateResult = new ArrayList<>();
 
-    // 받는 매개변수 또한 단순 double이 아닌 제네릭으로 받으나
-    // 반환 타입은 제네릭으로 하면 코드상에서 반환 타입을 알 수없어서 double타입으로 고정하였습니다.
     public double CalculateNumber(T positiveNumber1, T positiveNumber2 , OperatorType operator) {
-        double number1 = Double.parseDouble(positiveNumber1.toString());
-        double number2 = Double.parseDouble(positiveNumber2.toString());
+        double number1 = positiveNumber1.doubleValue();
+        double number2 = positiveNumber2.doubleValue();
 
         return switch (operator) {
             case OperatorType.PLUS ->  number1 + number2;
@@ -87,7 +84,7 @@ public class Calculator <T> {
             return null;
         }
 
-        return this.calculateResult.stream().filter( num -> {
+        return this.calculateResult.stream().filter(num -> {
             double doubleNumber = Double.parseDouble(num.toString());
             return doubleNumber > comparisonNumber;
         }).collect(Collectors.toCollection(ArrayList::new));
