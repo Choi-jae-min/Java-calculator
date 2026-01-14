@@ -3,6 +3,8 @@ package Challenge;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static Challenge.utility.readPositiveDouble;
+
 public class App {
     public static void main(String[] args) {
         Calculator<Double> calculator = new Calculator<>();
@@ -17,9 +19,10 @@ public class App {
             switch (menu) {
                 case "1":
                     int count = 1;
-                    double positiveNumber1 = calculator.readPositiveDouble(input ,count);
+                    // 객체 접근 없이 인풋데이터 관리
+                    double positiveNumber1 = readPositiveDouble(input ,count);
                     count++;
-                    double positiveNumber2 = calculator.readPositiveDouble(input ,count);
+                    double positiveNumber2 = readPositiveDouble(input ,count);
 
                     System.out.println("사칙연산 기호를 입력하세요 + , - , * , / ");
                     char operator = input.next().charAt(0);
